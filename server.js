@@ -60,6 +60,12 @@ app.post("/paddle-webhook", async (req, res) => {
       await sendEmail(event.data.email, subject, message);
       break;
 
+    case "transaction.updated":
+      subject = "Welcome to Our Store!";
+      message = `Hi, thank you for joining our store.`;
+      await sendEmail(event.data.email, subject, message);
+      break;
+
     default:
       console.log("⚠️ Unhandled event:", event.event_type);
   }
